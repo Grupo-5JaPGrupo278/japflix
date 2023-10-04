@@ -63,3 +63,7 @@ body {
 	justify-content: center;
 	row-gap: 10px;
 }
+#infoContainer {
+    width: 100%;
+    display: none;
+}
