@@ -65,4 +65,5 @@ body{
 #infoContainer {
     width: 100%;
     display: none;
+    background-color: white;
 }

@@ -34,7 +34,7 @@ function showMovies(){
     let HTMLContentToAppend = ''
     for (let i = 0; i < filteredmovies.length; i++){
         HTMLContentToAppend += `
-        <div class="peliContainer" id="${filteredmovies[i].title}">
+        <div onclick="showInfo(event)" class="peliContainer" id="${filteredmovies[i].title}">
             <div class="peliInfo">
                 <div class="peliTitle">${filteredmovies[i].title}</div>
                 <div class="peliTagline">${filteredmovies[i].tagline}</div>
@@ -55,21 +55,21 @@ SEARCHBTN.addEventListener('click', () => {
             filteredmovies.push(movies[i]);
         }
     }
-    console.log(filteredmovies)
     showMovies(); // Llama a la función para mostrar las películas filtradas
 })
 
-MOVIE_BOX.addEventListener('click', (e) => {
+function showInfo(e){
     INFO_CONTAINER.style.display = 'block';
     let blockid = e.target.id;
     for (let i = 0; i < filteredmovies.length; i++){
         if (blockid == filteredmovies[i].title){
+            console.log(filteredmovies[i].title);
             TITLE_CONTAINER.innerHTML = filteredmovies[i].title;
             DESCRIPTION.innerHTML = filteredmovies[i].overview;
-            GENRES = filteredmovies[i].genres.forEach( genre => `${genre} -`)
+            GENRES.innerHTML = filteredmovies[i].genres.forEach( genre => `${genre} -`)
         }
     }
-})
+}
 CLOSINGBTN.addEventListener('click', () => {
     INFO_CONTAINER.style.display = 'none';
 })
