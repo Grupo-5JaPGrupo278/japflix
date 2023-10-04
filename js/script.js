@@ -1,6 +1,7 @@
 const MOVIES_URL = 'https://japceibal.github.io/japflix_api/movies-data.json';
 const INPUT = document.getElementById('textArea');
 const CONTAINER = document.getElementById('itemContainer');
+const SEARCHBTN = document.getElementById('searchBtn');
 
 let movies = [];
 let filteredmovies = [];
@@ -27,11 +28,12 @@ function showMovies(){
     let HTMLContentToAppend = ''
     for (let i = 0; i < filteredmovies.length; i++){
         HTMLContentToAppend += `
-        <div>
-            <div>
-                <div>${filteredmovies[i].title}</div><div>${filteredmovies[i].vote_average}</div>
+        <div class="peliContainer">
+            <div class="peliInfo">
+                <div class="peliTitle">${filteredmovies[i].title}</div>
+                <div class="peliTagline">${filteredmovies[i].tagline}</div>
             </div>
-            <div>${filteredmovies[i].tagline}</div>
+            <div>${filteredmovies[i].vote_average}</div>
         </div>
         `
     }
@@ -39,14 +41,13 @@ function showMovies(){
     CONTAINER.innerHTML = HTMLContentToAppend
     
 }
-INPUT.addEventListener('input', () => {
+SEARCHBTN.addEventListener('click', () => {
     filteredmovies = [];
-    let inputtext = INPUT.value;
-    for (let i = 0; i < movies.length; i++){
-        if (inputtext == movies.title || inputtext == movies.tagline || inputtext == movies.overview){
-            filteredmovies.push(movies[i])
+    let inputText = INPUT.value.toLowerCase(); // Convierte el texto a minúsculas para comparar de forma insensible a mayúsculas y minúsculas
+    for (let i = 0; i < movies.length; i++) {
+        if (movies[i].title.toLowerCase().includes(inputText) || movies[i].tagline.toLowerCase().includes(inputText) || movies[i].overview.toLowerCase().includes(inputText)) {
+            filteredmovies.push(movies[i]);
         }
     }
-    console.log(filteredmovies)
-    
-})
+    showMovies(); // Llama a la función para mostrar las películas filtradas
+});
