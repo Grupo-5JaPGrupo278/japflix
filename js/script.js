@@ -1,6 +1,12 @@
 const MOVIES_URL = 'https://japceibal.github.io/japflix_api/movies-data.json';
 const INPUT = document.getElementById('textArea');
 const CONTAINER = document.getElementById('itemContainer');
+const MOVIE_BOX = document.getElementsByClassName('peliContainer');
+const INFO_CONTAINER = document.getElementById('infoContainer');
+const TITLE_CONTAINER = document.getElementById('titleContainer');
+const CLOSINGBTN = document.getElementById('closingbtn');
+const DESCRIPTION = document.getElementById('descriptionContainer');
+const GENRES = document.getElementById('genrecontainer');
 
 let movies = [];
 let filteredmovies = [];
@@ -27,7 +33,7 @@ function showMovies(){
     let HTMLContentToAppend = ''
     for (let i = 0; i < filteredmovies.length; i++){
         HTMLContentToAppend += `
-        <div>
+        <div class="peliContainer" id="${filteredmovies[i].title}">
             <div>
                 <div>${filteredmovies[i].title}</div><div>${filteredmovies[i].vote_average}</div>
             </div>
@@ -48,5 +54,20 @@ INPUT.addEventListener('input', () => {
         }
     }
     console.log(filteredmovies)
-    
 })
+
+MOVIE_BOX.addEventListener('click', (e) => {
+    INFO_CONTAINER.style.display = 'block';
+    let blockid = e.target.id;
+    for (let i = 0; i < filteredmovies.length; i++){
+        if (blockid == filteredmovies[i].title){
+            TITLE_CONTAINER.innerHTML = filteredmovies[i].title;
+            DESCRIPTION.innerHTML = filteredmovies[i].overview;
+            GENRES = filteredmovies[i].genres.forEach( genre => `${genre} -`)
+        }
+    }
+})
+CLOSINGBTN.addEventListener('click', () => {
+    INFO_CONTAINER.style.display = 'none';
+})
+/*Cuando el usuario pulse en alguna de las películas mostradas, se deberá desplegar un contenedor superior con la siguiente información de dicha película: title, overview y lista de genres.*/

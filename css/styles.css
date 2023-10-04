@@ -47,3 +47,7 @@ body{
     row-gap: 10px;
 
 }
+#infoContainer {
+    width: 100%;
+    display: none;
+}
