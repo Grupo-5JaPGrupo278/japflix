@@ -63,6 +63,10 @@ body {
 	justify-content: center;
 	row-gap: 10px;
 }
+#first-line {
+	display:flex;
+	justify-content: space-between;
+}
 #infoContainer {
     width: 100%;
     display: none;

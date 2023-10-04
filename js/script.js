@@ -1,9 +1,8 @@
 const MOVIES_URL = "https://japceibal.github.io/japflix_api/movies-data.json";
 const INPUT = document.getElementById("textArea");
 const CONTAINER = document.getElementById("itemContainer");
-const MOVIE_BOX = document.getElementsByClassName("peliContainer");
 const INFO_CONTAINER = document.getElementById("infoContainer");
-const TITLE_CONTAINER = document.getElementById("titleContainer");
+const TITLE_CONTAINER = document.getElementById("infotitleContainer");
 const CLOSINGBTN = document.getElementById("closingbtn");
 const DESCRIPTION = document.getElementById("descriptionContainer");
 const GENRES = document.getElementById("genrecontainer");
@@ -90,12 +89,15 @@ function showInfo(e) {
 	let blockid = e.target.id;
 	for (let i = 0; i < filteredmovies.length; i++) {
 		if (blockid == filteredmovies[i].title) {
+			
 			TITLE_CONTAINER.innerHTML = filteredmovies[i].title;
+			console.log(TITLE_CONTAINER);
 			DESCRIPTION.innerHTML = filteredmovies[i].overview;
-			GENRES = filteredmovies[i].genres.forEach(genre => `${genre} -`);
+			GENRES.innerHTML = filteredmovies[i].genres.map(genre => ` ${genre.name}`);
 		}
 	}
 };
+
 CLOSINGBTN.addEventListener("click", () => {
 	INFO_CONTAINER.style.display = "none";
 });
