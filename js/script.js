@@ -27,13 +27,20 @@ function showMovies(){
     let HTMLContentToAppend = ''
     for (let i = 0; i < filteredmovies.length; i++){
         HTMLContentToAppend += `
-        <div>${filteredmovies[i].title}</div>
+        <div>
+            <div>
+                <div>${filteredmovies[i].title}</div><div>${filteredmovies[i].vote_average}</div>
+            </div>
+            <div>${filteredmovies[i].tagline}</div>
+        </div>
         `
     }
+    // : title, tagline, y vote_average
     CONTAINER.innerHTML = HTMLContentToAppend
     
 }
 INPUT.addEventListener('input', () => {
+    filteredmovies = [];
     let inputtext = INPUT.value;
     for (let i = 0; i < movies.length; i++){
         if (inputtext == movies.title || inputtext == movies.tagline || inputtext == movies.overview){
