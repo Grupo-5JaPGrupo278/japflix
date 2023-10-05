@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="infoContainer">
+        <button id="infoBtn">More</button>
+        <div id="additionalInfo" style="display: none;">
+            <div class="menu-container">
+            <div><strong>Año de lanzamiento:</strong> <span id="releaseYear"></span></div>
+            <div><strong>Duración:</strong> <span id="duration"></span> minutos</div>
+            <div><strong>Presupuesto:</strong> $<span id="budget"></span></div>
+            <div><strong>Ganancias:</strong> $<span id="revenue"></span></div>
+        </div>
+    </div>
+    </div>
+    <div id="titleContainer">
+        <img src="img\Title.png" id="titleImg" alt="title">
+    </div>
+
+    <div id="inputContainer">
+        <input type="text" name="" id="textArea">
+        <input type="button" name="" id="searchBtn" value="Buscar">
+    </div>
+    
+    <div id="itemContainer">
+        <div id="movieDetails" style="display: none;">
+            <h2 id="movieTitle"></h2>
+            <div id="movieOverview"></div>
+            <div id="movieGenres"></div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/dropdown.js"></script>
+</body>
+</html>
