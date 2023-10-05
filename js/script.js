@@ -7,6 +7,9 @@ const CLOSINGBTN = document.getElementById("closingbtn");
 const DESCRIPTION = document.getElementById("descriptionContainer");
 const GENRES = document.getElementById("genrecontainer");
 const SEARCHBTN = document.getElementById("searchBtn");
+const INFOBTN = document.getElementById('infoBtn');
+const ADDITIONALINFO = document.getElementById('additionalInfo');
+const MOVIEDETAILS = document.getElementById('movieDetails');
 
 let movies = [];
 let filteredmovies = [];
@@ -83,13 +86,33 @@ SEARCHBTN.addEventListener("click", () => {
 	console.log(filteredmovies);
 	showMovies(); // Llama a la función para mostrar las películas filtradas
 });
+function showAdditionalInfo(movie) {
+    const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
+    const budget = movie.budget ? movie.budget.toLocaleString() : 'N/A';
+    const revenue = movie.revenue ? movie.revenue.toLocaleString() : 'N/A';
 
+
+    document.getElementById('releaseYear').textContent = releaseYear;
+    document.getElementById('duration').textContent = movie.runtime || 'N/A';
+    document.getElementById('budget').textContent = budget;
+    document.getElementById('revenue').textContent = revenue;
+
+    ADDITIONALINFO.style.display = 'block';
+}
+INFOBTN.addEventListener('click', () => {
+    if (menuVisible) {
+        ADDITIONALINFO.style.display = 'none';
+    } else {
+        ADDITIONALINFO.style.display = 'block';
+    }
+    menuVisible = !menuVisible;
+});
 function showInfo(e) {
 	INFO_CONTAINER.style.display = "block";
 	let blockid = e.target.id;
 	for (let i = 0; i < filteredmovies.length; i++) {
 		if (blockid == filteredmovies[i].title) {
-			
+			showAdditionalInfo(filteredmovies[i])
 			TITLE_CONTAINER.innerHTML = filteredmovies[i].title;
 			console.log(TITLE_CONTAINER);
 			DESCRIPTION.innerHTML = filteredmovies[i].overview;

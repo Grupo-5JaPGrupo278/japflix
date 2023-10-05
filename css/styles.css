@@ -67,8 +67,44 @@ body {
 	display:flex;
 	justify-content: space-between;
 }
-#infoContainer {
-    width: 100%;
+#moreinfoContainer {
+    width: 40px;
     display: none;
     background-color: white;
+}
+#additionalInfo {
+    position: absolute;
+    display: flex; 
+    max-height: 30; 
+    overflow: hidden; 
+    transition: max-height 0.3s ease-in-out; 
+}
+
+.menu-container {
+    background-color: #e7e7e7; 
+    border: 1px solid #c4c1c1; 
+    padding: 10px; 
+    border-radius: 2px;
+    font-family: Arial, sans-serif;
+    font-size: 12px; 
+    font-weight: lighter; 
+    font-style: normal; 
+    line-height: 1.5; 
+    color: #1b1a1a; 
+}
+
+#infoBtn {
+    cursor: pointer; 
+
+}
+
+
+#infoBtn.active {
+    transform: rotate(180deg); 
+}
+
+
+#additionalInfo.active {
+    max-height: 1000px; 
+    padding: 10px; 
 }
