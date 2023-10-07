@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="stylesheet" href="css/styles.css" />
-		<script src="https://kit.fontawesome.com/e6f78feb22.js" crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<div id="moreinfoContainer">
-			<button id="infoBtn">More</button>
-			<div id="additionalInfo" style="display: none;">
-				<div class="menu-container">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/styles.css" />
+	<script src="https://kit.fontawesome.com/e6f78feb22.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<!-- [ DROPDOWN - MORE INFO CONTAINER]-->
+	<div id="moreinfoContainer">
+		<button id="infoBtn">More</button>
+		<div id="additionalInfo">
+			<div class="menu-container">
 				<div><strong>Año de lanzamiento:</strong> <span id="releaseYear"></span></div>
 				<div><strong>Duración:</strong> <span id="duration"></span> minutos</div>
 				<div><strong>Presupuesto:</strong> $<span id="budget"></span></div>
 				<div><strong>Ganancias:</strong> $<span id="revenue"></span></div>
 			</div>
 		</div>
+	</div>
+	<!-- [ DROPDOWN - MORE INFO CONTAINER]-->
+	<!-- [ Menu Principal - Título - Buscador - Boton de búsqueda]-->
+	<div id="titleContainer">
+		<img src="img\Title.png" id="titleImg" alt="title" />
+	</div>
+	<div id="inputContainer">
+		<input type="text" name="" id="textArea" />
+		<input type="button" name="" id="searchBtn" value="Buscar" />
+	</div>
+	<!-- [ Menu Principal - Título - Buscador - Boton de búsqueda]-->
+	<!-- [ Contenedor de películas ]-->
+	<div id="itemContainer" class="itemContainer"></div>
+	<!-- [ Contenedor de películas ]-->
+	<!-- [ Contenedor de información específica de la película ]-->
+	<div id="infoContainer">
+		<div id="first-line">
+			<div id="infotitleContainer"></div>
+			<button id="closingbtn">X</button>
 		</div>
-		<div id="titleContainer">
-			<img src="img\Title.png" id="titleImg" alt="title" />
-		</div>
-		<div id="inputContainer">
-			<input type="text" name="" id="textArea" />
-			<input type="button" name="" id="searchBtn" value="Buscar" />
-		</div>
-		<div id="itemContainer" class="itemContainer"></div>
+		<div id="descriptionContainer"></div>
+		<hr />
+		<div id="genrecontainer"></div>
+	</div>
+	<!-- [ Contenedor de información específica de la película ]-->
+	<script src="js/script.js"></script>
+</body>
 
-		<div id="infoContainer">
-			<div id="first-line">
-				<div id="infotitleContainer"></div>
-				<button id="closingbtn">X</button>
-			</div>
-			<div id="descriptionContainer"></div>
-			<hr />
-			<div id="genrecontainer"></div>
-		</div>
-		<script src="js/script.js"></script>
-	</body>
 </html>

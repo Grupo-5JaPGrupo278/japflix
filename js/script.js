@@ -9,10 +9,11 @@ const GENRES = document.getElementById("genrecontainer");
 const SEARCHBTN = document.getElementById("searchBtn");
 const INFOBTN = document.getElementById('infoBtn');
 const ADDITIONALINFO = document.getElementById('additionalInfo');
-const MOVIEDETAILS = document.getElementById('movieDetails');
+const MOVIEDETAILS = document.getElementById('moreinfoContainer');
 
 let movies = [];
 let filteredmovies = [];
+// Función Fetch
 function getMovies(url) {
 	return fetch(url)
 		.then(response => {
@@ -26,12 +27,16 @@ function getMovies(url) {
 			console.log("err");
 		});
 }
+// Función Fetch
+// Event Listener cuando carga la página, hacer el fetch
 document.addEventListener("DOMContentLoaded", e => {
 	getMovies(MOVIES_URL).then(data => {
 		movies = data;
 		console.log(data);
 	});
 });
+// Event Listener cuando carga la página, hacer el fetch
+// Impresora de películas en el contenedor
 function showMovies() {
 	let HTMLContentToAppend = "";
 	for (let i = 0; i < filteredmovies.length; i++) {
@@ -67,10 +72,9 @@ function showMovies() {
 		}
 	}
 
-	// : title, tagline, y vote_average
-
-	//${filteredmovies[i].vote_average}
 }
+// Impresora de películas en el contenedor
+// Event Listener al botón de Buscar/ Agarra el value del Input de búsqueda y genera un nuevo array con los filtros
 SEARCHBTN.addEventListener("click", () => {
 	filteredmovies = [];
 	let inputText = INPUT.value.toLowerCase(); // Convierte el texto a minúsculas para comparar de forma insensible a mayúsculas y minúsculas
@@ -86,6 +90,8 @@ SEARCHBTN.addEventListener("click", () => {
 	console.log(filteredmovies);
 	showMovies(); // Llama a la función para mostrar las películas filtradas
 });
+// Event Listener al botón de Buscar/ Agarra el value del Input de búsqueda y genera un nuevo array con los filtros
+// Función que define la información adicional de la película seleccionada
 function showAdditionalInfo(movie) {
     const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
     const budget = movie.budget ? movie.budget.toLocaleString() : 'N/A';
@@ -99,15 +105,19 @@ function showAdditionalInfo(movie) {
 
     ADDITIONALINFO.style.display = 'block';
 }
+// Función que define la información adicional de la película seleccionada
+// Event Listener al botón de información adicional, para mostrar o no la misma
 INFOBTN.addEventListener('click', () => {
-    if (menuVisible) {
+    if (ADDITIONALINFO.style.display == 'block') {
         ADDITIONALINFO.style.display = 'none';
     } else {
         ADDITIONALINFO.style.display = 'block';
     }
-    menuVisible = !menuVisible;
 });
+// Event Listener al botón de información adicional, para mostrar o no la misma
+// Función que muestra la información básica de cada película seleccionada
 function showInfo(e) {
+	MOVIEDETAILS.style.display = "block";
 	INFO_CONTAINER.style.display = "block";
 	let blockid = e.target.id;
 	for (let i = 0; i < filteredmovies.length; i++) {
@@ -120,8 +130,9 @@ function showInfo(e) {
 		}
 	}
 };
-
+// Función que muestra la información básica de cada película seleccionada
+// Cerrar la información básica
 CLOSINGBTN.addEventListener("click", () => {
 	INFO_CONTAINER.style.display = "none";
 });
-/*Cuando el usuario pulse en alguna de las películas mostradas, se deberá desplegar un contenedor superior con la siguiente información de dicha película: title, overview y lista de genres.*/
+// Cerrar la información básica

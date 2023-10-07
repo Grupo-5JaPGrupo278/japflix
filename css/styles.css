@@ -1,3 +1,4 @@
+/* [Generalidades de la página] */
 body {
 	background-color: #212529;
 }
@@ -16,6 +17,8 @@ body {
 	border-radius: 7px;
 	color: rgb(255, 255, 255);
 }
+/* [Generalidades de la página] */
+/* [Contenedor de películas] */
 .peliContainer {
 	position: relative;
 	display: flex;
@@ -63,23 +66,33 @@ body {
 	justify-content: center;
 	row-gap: 10px;
 }
+/* [Contenedor de películas] */
+/* [Contenedor de información] */
+#infoContainer{
+	width:100%;
+	background: white;
+	color:black;
+	display: none;
+}
 #first-line {
 	display:flex;
 	justify-content: space-between;
 }
+
+/* [Contenedor de información adicional] */
 #moreinfoContainer {
     width: 40px;
     display: none;
     background-color: white;
 }
 #additionalInfo {
+	display: none;
     position: absolute;
     display: flex; 
     max-height: 30; 
     overflow: hidden; 
     transition: max-height 0.3s ease-in-out; 
 }
-
 .menu-container {
     background-color: #e7e7e7; 
     border: 1px solid #c4c1c1; 
@@ -92,19 +105,15 @@ body {
     line-height: 1.5; 
     color: #1b1a1a; 
 }
-
 #infoBtn {
     cursor: pointer; 
 
 }
-
-
 #infoBtn.active {
     transform: rotate(180deg); 
 }
-
-
 #additionalInfo.active {
     max-height: 1000px; 
     padding: 10px; 
 }
+/* [Contenedor de películas] */
