@@ -1,6 +1,10 @@
 /* [Generalidades de la página] */
+:root{
+	--colorflix: #DB202C;
+}
 body {
 	background-color: #212529;
+	min-width:600px;
 }
 .checked {
 	color: orange;
@@ -69,21 +73,44 @@ body {
 /* [Contenedor de películas] */
 /* [Contenedor de información] */
 #infoContainer{
-	width:100%;
-	background: white;
-	color:black;
+	width:80%;
+	padding:20px;
+	margin-left:auto;
+	margin-right:auto;
+	background: #212529;
+	color:rgb(255, 255, 255);
+	border: 1.5px solid var(--colorflix);
+	border-radius: 10px;
 	display: none;
 }
 #first-line {
 	display:flex;
 	justify-content: space-between;
 }
+#infotitleContainer{
+	font-size: 1.5rem;
+}
+#descriptionContainer, #genrecontainer{
+	font-size: 1.2rem;
+}
+#closingbtn{
+	width: 40px;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+#closingbtn:hover, #infoBtn:hover{
+	background-color: var(--colorflix);
+}
+hr {
+	border-color: var(--colorflix);
+}
 
 /* [Contenedor de información adicional] */
 #moreinfoContainer {
     width: 40px;
     display: none;
-    background-color: white;
+    background-color: #212529;
 }
 #additionalInfo {
 	display: none;
@@ -94,8 +121,8 @@ body {
     transition: max-height 0.3s ease-in-out; 
 }
 .menu-container {
-    background-color: #e7e7e7; 
-    border: 1px solid #c4c1c1; 
+    background-color: #212529; 
+    border: 1px solid var(--colorflix); 
     padding: 10px; 
     border-radius: 2px;
     font-family: Arial, sans-serif;
@@ -103,7 +130,7 @@ body {
     font-weight: lighter; 
     font-style: normal; 
     line-height: 1.5; 
-    color: #1b1a1a; 
+    color: rgb(255, 255, 255); 
 }
 #infoBtn {
     cursor: pointer; 

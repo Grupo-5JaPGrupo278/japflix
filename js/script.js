@@ -124,7 +124,6 @@ function showInfo(e) {
 		if (blockid == filteredmovies[i].title) {
 			showAdditionalInfo(filteredmovies[i])
 			TITLE_CONTAINER.innerHTML = filteredmovies[i].title;
-			console.log(TITLE_CONTAINER);
 			DESCRIPTION.innerHTML = filteredmovies[i].overview;
 			GENRES.innerHTML = filteredmovies[i].genres.map(genre => ` ${genre.name}`);
 		}
