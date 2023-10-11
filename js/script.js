@@ -74,23 +74,6 @@ function showMovies() {
 
 }
 // Impresora de películas en el contenedor
-// Event Listener al botón de Buscar/ Agarra el value del Input de búsqueda y genera un nuevo array con los filtros
-SEARCHBTN.addEventListener("click", () => {
-	filteredmovies = [];
-	let inputText = INPUT.value.toLowerCase(); // Convierte el texto a minúsculas para comparar de forma insensible a mayúsculas y minúsculas
-	for (let i = 0; i < movies.length; i++) {
-		if (
-			movies[i].title.toLowerCase().includes(inputText) ||
-			movies[i].tagline.toLowerCase().includes(inputText) ||
-			movies[i].overview.toLowerCase().includes(inputText)
-		) {
-			filteredmovies.push(movies[i]);
-		}
-	}
-	console.log(filteredmovies);
-	showMovies(); // Llama a la función para mostrar las películas filtradas
-});
-// Event Listener al botón de Buscar/ Agarra el value del Input de búsqueda y genera un nuevo array con los filtros
 // Función que define la información adicional de la película seleccionada
 function showAdditionalInfo(movie) {
     const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
@@ -135,3 +118,22 @@ CLOSINGBTN.addEventListener("click", () => {
 	INFO_CONTAINER.style.display = "none";
 });
 // Cerrar la información básica
+// Event Listener al botón de Buscar/ Agarra el value del Input de búsqueda y genera un nuevo array con los filtros
+SEARCHBTN.addEventListener("click", () => {
+	filteredmovies = [];
+	let inputText = INPUT.value.toLowerCase(); // Convierte el texto a minúsculas para comparar de forma insensible a mayúsculas y minúsculas
+	for (let i = 0; i < movies.length; i++) {
+		if (
+			movies[i].title.toLowerCase().includes(inputText) ||
+			movies[i].tagline.toLowerCase().includes(inputText) ||
+			movies[i].overview.toLowerCase().includes(inputText)
+		) {
+			filteredmovies.push(movies[i]);
+		}
+	}
+	console.log(filteredmovies);
+	showMovies(); // Llama a la función para mostrar las películas filtradas
+});
+// Event Listener al botón de Buscar/ Agarra el value del Input de búsqueda y genera un nuevo array con los filtros
+
+
